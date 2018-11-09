@@ -1,7 +1,9 @@
 const webpack = require('webpack')
 const babel = require('./rules/babel')
 const vue = require('./rules/vue')
+const css = require('./rules/css')
 const path = require('path')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
   entry: './src/index.js',
@@ -11,7 +13,9 @@ module.exports = {
     filename: 'vue-progressive-image.js'
   },
   module: {
-    rules: [babel, vue]
+    rules: [babel, vue, css]
   },
-  plugins: []
+  plugins: [
+    new VueLoaderPlugin()
+  ]
 }

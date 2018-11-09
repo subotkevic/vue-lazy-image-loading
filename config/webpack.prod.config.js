@@ -2,12 +2,28 @@ var webpack = require('webpack')
 var webpackDevConfig = require('./webpack.dev.config')
 var vue = require('./rules/vue')
 var merge = require('webpack-merge')
-var CompressionPlugin = require("compression-webpack-plugin")
 var banner = require('./banner')
+
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = merge.smart({}, webpackDevConfig, {
   module: {
     rules: [vue]
+  },
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        uglifyOptions: {
+          compress: {
+            warnings: false,
+            drop_console: false
+          },
+          comments: false,
+          minimize: false
+        },
+      }),
+    ],
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -21,17 +37,8 @@ module.exports = merge.smart({}, webpackDevConfig, {
       minimize: true
     }),
 
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-        drop_console: false
-      },
-      comments: false,
-      minimize: false
-    }),
-
     new CompressionPlugin({
-      asset: '[path].gz[query]',
+      filename: '[path].gz[query]',
       algorithm: 'gzip',
       test: /\.js$|\.html$/,
       threshold: 10240,
