@@ -8,8 +8,7 @@
   ],
   "scripts": {
     "dev": "webpack --config config/webpack.dev.config.js -w --hide-modules",
-    "build": "webpack --config config/webpack.prod.config.js --optimize-minimize --hide-modules",
-    "prepublish": "webpack --config config/webpack.prod.config.js --optimize-minimize --hide-modules"
+    "build": "webpack --config config/webpack.prod.config.js --optimize-minimize --hide-modules"
   },
   "author": {
     "name": "Artur Subotkevič",
@@ -32,12 +31,12 @@
   },
   "homepage": "https://github.com/subotkevic/vue-lazy-image#readme",
   "devDependencies": {
-    "babel-core": "^6.23.1",
+    "babel-core": "^6.26.3",
     "babel-loader": "^6.3.2",
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-stage-2": "^6.22.0",
     "babel-register": "^6.23.0",
-    "compression-webpack-plugin": "^0.3.2",
+    "compression-webpack-plugin": "^2.0.0",
     "css-loader": "^0.26.2",
     "style-loader": "^0.13.2",
     "vue-loader": "^11.1.3",
