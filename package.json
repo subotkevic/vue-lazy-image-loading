@@ -1,7 +1,7 @@
 {
-  "name": "vue-progressive-image",
-  "version": "3.2.0",
-  "description": "Vue progressive image loading plugin",
+  "name": "vue-lazy-image",
+  "version": "1.0.0",
+  "description": "Vue progressive image or background loading plugin.",
   "main": "dist/vue-progressive-image.js",
   "files": [
     "dist"
@@ -12,29 +12,25 @@
     "prepublish": "webpack --config config/webpack.prod.config.js --optimize-minimize --hide-modules"
   },
   "author": {
-    "name": "Matteo Gabriele",
-    "email": "m.gabriele.dev@gmail.com"
-  },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
-    }
+    "name": "Artur Subotkevič",
+    "email": "artur@subotkevic.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/MatteoGabriele/vue-progressive-image"
+    "url": "https://github.com/subotkevic/vue-lazy-image"
   },
   "keywords": [
     "progressive",
     "image",
+    "background",
     "img",
     "lazy loading"
   ],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MatteoGabriele/vue-progressive-image/issues"
+    "url": "https://github.com/subotkevic/vue-lazy-image/issues"
   },
-  "homepage": "https://github.com/MatteoGabriele/vue-progressive-image#readme",
+  "homepage": "https://github.com/subotkevic/vue-lazy-image#readme",
   "devDependencies": {
     "babel-core": "^6.23.1",
     "babel-loader": "^6.3.2",

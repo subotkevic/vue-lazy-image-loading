@@ -1,5 +1,5 @@
 <template>
-  <div :class="['progressive-background', customClass]">
+  <component :is="tag" :class="['progressive-background']" v-bind="$attrs">
     <div v-if="cached" :style="wrapperStyle">
       <div class="progressive-background-image" :style="imageStyle"></div>
       <div class="progressive-background-slot">
@@ -36,7 +36,7 @@
         </transition>
       </div>
     </span>
-  </div>
+  </component>
 </template>
 
 <script>
@@ -49,7 +49,12 @@
       noRatio: {
         type: Boolean,
         required: false
-      }
+      },
+      tag: {
+        type: String,
+        default: 'div',
+      },
+      
     },
 
     mixins: [
@@ -58,7 +63,7 @@
 
     data () {
       return {
-        applyRatio: !this.noRatio
+        applyRatio: !this.noRatio,
       }
     },
 
