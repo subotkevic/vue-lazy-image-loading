@@ -1,8 +1,8 @@
 {
-  "name": "vue-lazy-images",
+  "name": "vue-lazy-image-loading",
   "version": "1.0.0",
   "description": "Vue progressive image or background loading plugin.",
-  "main": "dist/vue-progressive-image.js",
+  "main": "dist/vue-lazy-image-loading.js",
   "files": [
     "dist"
   ],
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/subotkevic/vue-lazy-image"
+    "url": "https://github.com/subotkevic/vue-lazy-image-loading"
   },
   "keywords": [
     "progressive",
@@ -27,9 +27,9 @@
   ],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/subotkevic/vue-lazy-image/issues"
+    "url": "https://github.com/subotkevic/vue-lazy-image-loading/issues"
   },
-  "homepage": "https://github.com/subotkevic/vue-lazy-image#readme",
+  "homepage": "https://github.com/subotkevic/vue-lazy-image-loading#readme",
   "devDependencies": {
     "@babel/core": "^7.1.5",
     "@babel/preset-env": "^7.1.5",

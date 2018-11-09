@@ -10,7 +10,7 @@ module.exports = {
   output: {
     libraryTarget: 'umd',
     path: path.resolve(__dirname, '../dist'),
-    filename: 'vue-progressive-image.js'
+    filename: 'vue-lazy-image-loading.js'
   },
   module: {
     rules: [babel, vue, css]

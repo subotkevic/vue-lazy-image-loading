@@ -4,7 +4,7 @@
  */
 export const warn = function (...message) {
   /* eslint-disable */
-  console.warn(`[vue-progressive-image] ${message.join(' ')}`)
+  console.warn(`[vue-lazy-image-loading] ${message.join(' ')}`)
   /* eslint-enable */
 }
 
