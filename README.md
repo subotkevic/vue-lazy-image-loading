@@ -5,7 +5,7 @@ Vue progressive image or background loading plugin.
 ## Installation
 
 ```bash
-npm install vue-progressive-image
+npm install vue-lazy-images
 ```
 
 ## Usage
