@@ -1,6 +1,12 @@
-# vue-lazy-image-loading
+<p align="center">
+    <a href="https://www.npmjs.com/package/vue-lazy-image-loading"><img src="https://img.shields.io/npm/dt/vue-lazy-image-loading.svg" alt="Downloads"></a>
+    <a href="https://www.npmjs.com/package/vue-lazy-image-loading"><img src="https://img.shields.io/npm/v/vue-lazy-image-loading.svg" alt="Version"></a>
+    <a href="https://www.npmjs.com/package/vue-lazy-image-loading"><img src="https://img.shields.io/npm/l/vue-lazy-image-loading.svg" alt="License"></a>
+</p>
 
-Vue progressive image or background loading plugin.
+# Vue Lazy Image Loading
+
+Vue progressive image and background loading plugin.
 
 ## Installation
 
