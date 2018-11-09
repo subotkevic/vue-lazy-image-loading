@@ -104,6 +104,7 @@
     left: 0;
   }
 
+  /* @todo: Add background position, repeat and size as props in the future */
   .progressive-background-image {
     position: absolute;
     top: 0;
@@ -112,7 +113,6 @@
     height: 100%;
     z-index: 1;
     transition: all 0.4s ease-out;
-    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
   }
