@@ -1,0 +1,48 @@
+{
+  "name": "vue-lazy-image-loading",
+  "version": "1.0.2",
+  "description": "Vue progressive image or background loading plugin.",
+  "main": "dist/vue-lazy-image-loading.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "webpack --config config/webpack.dev.config.js -w --hide-modules --mode development",
+    "build": "webpack --config config/webpack.prod.config.js --optimize-minimize --hide-modules --mode production"
+  },
+  "author": {
+    "name": "Artur Subotkevič",
+    "email": "artur@subotkevic.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/subotkevic/vue-lazy-image-loading"
+  },
+  "keywords": [
+    "progressive",
+    "image",
+    "background",
+    "img",
+    "lazy loading"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/subotkevic/vue-lazy-image-loading/issues"
+  },
+  "homepage": "https://github.com/subotkevic/vue-lazy-image-loading#readme",
+  "devDependencies": {
+    "@babel/core": "^7.1.5",
+    "@babel/preset-env": "^7.1.5",
+    "babel-loader": "^8.0.4",
+    "compression-webpack-plugin": "^2.0.0",
+    "css-loader": "^1.0.1",
+    "style-loader": "^0.23.1",
+    "uglifyjs-webpack-plugin": "^2.0.1",
+    "vue-loader": "^15.4.2",
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-merge": "^3.0.0"
+  },
+  "dependencies": {}
+}

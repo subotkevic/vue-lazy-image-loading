@@ -1,0 +1,6 @@
+node_modules
+dist
+*.map
+npm-debug.log
+examples
+release.sh
