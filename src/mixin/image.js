@@ -172,7 +172,7 @@ export default {
           ctx = this.$refs.canvas.getContext('2d')
           ctx.drawImage(this.$refs.main, 0, 0)
         } catch (e) {
-          // see https://github.com/MatteoGabriele/vue-progressive-image/issues/30
+          
         }
 
         // next tick to know when the image is rendered
@@ -194,7 +194,7 @@ export default {
         this.$emit('onError', error)
 
         if (process.env.NODE_ENV !== 'production' && !this.fallback) {
-          console.warn('[vue-progressive-image] An error occured during the image loading')
+          console.warn('[vue-lazy-image-loading] An error occured during the image loading')
         }
 
         if (this.fallback || this.options.fallback) {
@@ -227,7 +227,7 @@ export default {
         this.$emit('onPlaceholderError', error)
 
         if (process.env.NODE_ENV !== 'production') {
-          console.warn('[vue-progressive-image] An error occured during the placeholder image loading')
+          console.warn('[vue-lazy-image-loading] An error occured during the placeholder image loading')
         }
       }
     },

@@ -1,36 +1,42 @@
 <template>
-  <component :is="tag" :class="['progressive-background']" v-bind="$attrs">
+  <component :is="tag" :class="['lazy-background']" v-bind="$attrs">
     <div v-if="cached" :style="wrapperStyle">
-      <div class="progressive-background-image" :style="imageStyle"></div>
-      <div class="progressive-background-slot">
+      <div class="lazy-background-image" :style="imageStyle"></div>
+
+      <div class="lazy-background-slot">
         <slot name="content" />
       </div>
     </div>
+
     <span v-else>
       <div v-if="!shouldImageRender">
         <canvas
           width="1"
           height="1"
-          class="progressive-background-canvas"
+          class="lazy-background-canvas"
           ref="canvas">
         </canvas>
+        
         <img ref="main" :src="image" hidden>
       </div>
+
       <div :style="wrapperStyle">
         <transition
-          enter-class="progressive-background-enter"
-          enter-active-class="progressive-background-before">
-          <div v-if="shouldImageRender" class="progressive-background-image" :style="imageStyle"></div>
+          enter-class="lazy-background-enter"
+          enter-active-class="lazy-background-before">
+          <div v-if="shouldImageRender" class="lazy-background-image" :style="imageStyle"></div>
         </transition>
-        <div class="progressive-background-slot">
+
+        <div class="lazy-background-slot">
           <slot name="content" :visible="!shouldImageRender" />
         </div>
+
         <transition
-          enter-class="progressive-background-enter"
-          enter-active-class="progressive-background-before">
+          enter-class="lazy-background-enter"
+          enter-active-class="lazy-background-before">
           <div
             v-if="shouldPlaceholderRender"
-            class="progressive-background-placeholder"
+            class="lazy-background-placeholder"
             :style="placeholderStyle">
           </div>
         </transition>
@@ -43,7 +49,7 @@
   import image from '../mixin/image'
 
   export default {
-    name: 'progressive-background',
+    name: 'lazy-background',
 
     props: {
       noRatio: {
@@ -54,7 +60,18 @@
         type: String,
         default: 'div',
       },
-      
+      position: {
+        type: String,
+        default: '0% 0%',
+      },
+      size: {
+        type: String,
+        default: 'cover',
+      },
+      repeat: {
+        type: String,
+        default: 'no-repeat',
+      },
     },
 
     mixins: [
@@ -63,21 +80,27 @@
 
     data () {
       return {
-        applyRatio: !this.noRatio,
+        applyRatio: ! this.noRatio,
       }
     },
 
     computed: {
       imageStyle () {
         return {
-          backgroundImage: `url(${this.image})`
+          backgroundImage: `url(${this.image})`,
+          backgroundPosition: this.position,
+          backgroundSize: this.size,
+          backgroundRepeat: this.repeat,
         }
       },
 
       placeholderStyle () {
         return {
           ...this.blurStyle,
-          backgroundImage: `url(${this.placeholderImage})`
+          backgroundImage: `url(${this.placeholderImage})`,
+          backgroundPosition: this.position,
+          backgroundSize: this.size,
+          backgroundRepeat: this.repeat,
         }
       }
     }
@@ -85,27 +108,26 @@
 </script>
 
 <style lang="css">
-  .progressive-background {
+  .lazy-background {
     position: relative;
     width: 100%;
     height: 100%;
     overflow: hidden;
   }
 
-  .progressive-background-slot {
+  .lazy-background-slot {
     position: relative;
     z-index: 1;
   }
 
-  .progressive-background-canvas {
+  .lazy-background-canvas {
     visibility: hidden;
     position: absolute;
     top: 0;
     left: 0;
   }
 
-  /* @todo: Add background position, repeat and size as props in the future */
-  .progressive-background-image {
+  .lazy-background-image {
     position: absolute;
     top: 0;
     left: 0;
@@ -113,11 +135,9 @@
     height: 100%;
     z-index: 1;
     transition: all 0.4s ease-out;
-    background-repeat: no-repeat;
-    background-size: cover;
   }
 
-  .progressive-background-placeholder {
+  .lazy-background-placeholder {
     position: absolute;
     top: 0;
     left: 0;
@@ -125,21 +145,19 @@
     height: 100%;
     z-index: 1;
     transition: all 0.4s ease-out;
-    background-repeat: no-repeat;
-    background-size: cover;
     transform: scale(1.1);
     z-index: 0;
   }
 
-  .progressive-background-before {
+  .lazy-background-before {
     opacity: 1;
   }
 
-  .progressive-background-enter {
+  .lazy-background-enter {
     opacity: 0;
   }
 
-  .progressive-background-preloader {
+  .lazy-background-preloader {
     pointer-events: none;
     position: absolute;
     top: 0;
