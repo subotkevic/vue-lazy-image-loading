@@ -253,4 +253,43 @@ Vue.use(VueLazyImageLoading, {
 })
 ```
 
+#### position
+*	type: String
+*	default: '0% 0%'
+
+Allows you to set the value of the `background-position` CSS property.
+Will only work `lazy-background` component.
+
+```js
+Vue.use(VueLazyImageLoading, {
+  position: 'center'
+})
+```
+
+#### size
+*	type: String
+*	default: 'cover'
+
+Allows you to set the value of the `background-size` CSS property.
+Will only work `lazy-background` component.
+
+```js
+Vue.use(VueLazyImageLoading, {
+  size: 'contain'
+})
+```
+
+#### repeat
+*	type: String
+*	default: 'no-repeat'
+
+Allows you to set the value of the `background-repeat` CSS property.
+Will only work `lazy-background` component.
+
+```js
+Vue.use(VueLazyImageLoading, {
+  repeat: 'repeat-x'
+})
+```
+
 **Global options like `placeholder` and `blur` will be applied only to components that don't specify their own options**
