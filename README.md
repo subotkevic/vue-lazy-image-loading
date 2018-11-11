@@ -23,7 +23,7 @@ import VueLazyImageLoading from 'vue-lazy-image-loading'
 Vue.use(VueLazyImageLoading)
 ```
 
-#### Progressive image
+#### Lazy image
 
 Instead of using the normal `img` tag to load images
 
@@ -31,46 +31,34 @@ Instead of using the normal `img` tag to load images
 <img src="https://unsplash.it/1920/1080?image=10" />
 ```
 
-use the `progressive-img` component already globally available after the plugin installation
+use the `lazy-img` component already globally available after the plugin installation
 
 ```html
 <lazy-img src="https://unsplash.it/1920/1080?image=10" />
 ```
 
-#### Progressive background
+#### Lazy background
 
-It is also possible to apply progressive images as backgrounds and it will have the same props as the progressive-img component
+It is also possible to apply lazy images as backgrounds and it will have the same props as the lazy-img component
 
 ```html
 <lazy-background src="https://unsplash.it/1920/1080?image=10" />
 ```
 
+## Global properties
 
-## Placeholders
+There is all properties you can use for both `lazy-img` and `lazy-background` components.
 
+### Placeholder 
 To be able to immediately show some feedback to the user, it is possible to pass a placeholder image, which could be also 1% the size of the main image: it will be blurred so you can go crazy with optimizations here.
 
-in this example I actually use the same image, but you have the idea here
+In this example I actually use the same image, but you have the idea here
 
 ```html
 <lazy-img
   src="https://unsplash.it/1920/1080?image=10"
   placeholder="https://unsplash.it/1920/1080?image=10"
 />
-```
-
-### The slot (progressive-background only)
-
-The progressive-background has a "content" slot, which can hold content that needs to be rendered over the background image and also can hold a preloader.
-This slot has one property called "visible" that tells you when, for example, a preloader needs to be visible or not.
-
-```html
-<lazy-background src="https://unsplash.it/1920/1080?image=10">
-  <div slot="content" slot-scope="{ visible }">
-    <p>I am some content to display over the image</p>
-    <div v-show="visible">I am the preloader</div>
-  </div>
-</lazy-background>
 ```
 
 ### Blur
@@ -104,6 +92,63 @@ It is also possible to manually specify the image aspact ratio when you know it.
   src="https://unsplash.it/1920/1080?image=10"
   aspect-ratio="1.5"
 />
+```
+
+## `lazy-background` properties
+
+There is all properties you can use for the `lazy-background` component only.
+
+### Background position
+
+Allows you to set the value of the `background-position` CSS property.
+
+The default value is `0% 0%`.
+
+```html
+<lazy-background
+  src="https://unsplash.it/1920/1080?image=10"
+  position="center"
+/>
+```
+
+### Background size
+
+Allows you to set the value of the `background-size` CSS property.
+
+The default value is `cover`.
+
+```html
+<lazy-background
+  src="https://unsplash.it/1920/1080?image=10"
+  size="contain"
+/>
+```
+
+### Background repeat
+
+Allows you to set the value of the `background-repeat` CSS property.
+
+The default value is `no-repeat`.
+
+```html
+<lazy-background
+  src="https://unsplash.it/1920/1080?image=10"
+  repeat="repeat-x"
+/>
+```
+
+### The slot
+
+The lazy-background has a "content" slot, which can hold content that needs to be rendered over the background image and also can hold a preloader.
+This slot has one property called "visible" that tells you when, for example, a preloader needs to be visible or not.
+
+```html
+<lazy-background src="https://unsplash.it/1920/1080?image=10">
+  <div slot="content" slot-scope="{ visible }">
+    <p>I am some content to display over the image</p>
+    <div v-show="visible">I am the preloader</div>
+  </div>
+</lazy-background>
 ```
 
 ## Image fallback
