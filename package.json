@@ -1,7 +1,7 @@
 {
   "name": "vue-lazy-image-loading",
   "version": "1.1.0",
-  "description": "Vue progressive image or background loading plugin.",
+  "description": "Vue lazy image and background loading plugin.",
   "main": "dist/vue-lazy-image-loading.js",
   "files": [
     "dist"
