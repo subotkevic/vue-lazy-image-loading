@@ -162,6 +162,36 @@ In case of a loading error of the main image, it is possible to add a fallback i
 />
 ```
 
+## Vue Loader - Asset URL Handling
+
+If you're using Vue Loader, it's Asset URL transforms will not work with our `lazy-img` and `lazy-background` elements by default.
+
+By default the following tag/attribute combinations are transformed, and can be configured using the [transformAssetUrls](https://vue-loader.vuejs.org/options.html#transformasseturls) option:
+
+```js
+{
+  video: ['src', 'poster'],
+  source: 'src',
+  img: 'src',
+  image: 'xlink:href'
+}
+```
+
+All you have to is to add our `lazy-img` and `lazy-background` tags to the `transformAssetUrls` object:
+
+```js
+{
+  video: ['src', 'poster'],
+  source: 'src',
+  img: 'src',
+  image: 'xlink:href',
+  'lazy-img': 'src',
+  'lazy-background': 'src'
+}
+```
+
+Now, Vue Loader's Asset URL transforms will work with our elements too.
+
 ## Events
 
 Each component emits an event whenever an image is loaded.
