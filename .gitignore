@@ -5,3 +5,4 @@ npm-debug.log
 examples
 release.sh
 .idea
+.release-it.json
